@@ -1,0 +1,88 @@
+// Kompleksitas waktu konstan // 
+# menetukan getFirst jika diperoleh mylist[0]
+
+import numpy as np
+
+def getFirst(myList):
+  return(myList[0])
+  getFirst(1,2,3)
+
+getFirst([1,2,3])
+
+getFirst([1,2,3,4,5,6,7,8,8,9])
+
+Latihan :
+1) Jika getFirst diperoleh dari myList [0], bagaimana memperoleh getSecond?
+
+import numpy as np
+
+def getSecond(myList):
+  return(myList[1])
+
+getSecond([1,2,3])
+
+getSecond([1,2,3,4,5,6,7,8,9])
+
+2) Jika getFirst diperoleh dari myList [0], bagaimana memperoleh getLast (isi terakhir)?
+
+import numpy as np
+
+def getLast(myList):
+   return myList[len(myList)-1]
+
+getLast([1,2,3])
+
+getLast([1,2,3,4,5,6,7,8,9])
+
+// Kompleksitas waktu linier //
+# Menentukan getSum
+# getSum adalah perintah untuk mendapatkan hasil jumlah seluruh angka. 
+
+import numpy as np
+def getSum(myList):
+  sum = 0
+  for item in myList:
+    sum = sum+item
+  return sum
+
+getSum([1,2,3,4])
+
+Latihan :
+1) getSum adalah perintah untuk mendapatkan hasil jumlah seluruh angka. 
+Bagaimana jika kita membutuhkan fungsi getKali untuk mengalikan seluruh angka?
+
+import numpy as np
+
+def getKali(myList):
+  kali = 1
+  for item in myList:
+    kali = kali*item
+  return kali
+
+getKali([1,2,3,4])
+
+2) getSum adalah perintah untuk mendapatkan hasil jumlah seluruh angka. 
+Bagaimana jika kita membutuhkan fungsi getBagi untuk membagikan seluruh angka?
+
+import numpy as np
+
+def getSum(myList1, myList2):
+    sum1 = 0
+    sum2 = 0
+    for item in myList1:
+        sum1 += item
+    for item in myList2:
+        sum2 += item
+    hasil = sum1/sum2
+    return hasil
+
+print(getSum([1,2,3,4],[3,1,4,1]))
+
+
+
+
+
+
+
+
+
