@@ -78,6 +78,21 @@ def getSum(myList1, myList2):
 
 print(getSum([1,2,3,4],[3,1,4,1]))
 
+# getKurang
+
+import numpy as np
+
+def getSum(myList1, myList2):
+    sum1 = 0
+    sum2 = 0
+    for item in myList1:
+        sum1 += item
+    for item in myList2:
+        sum2 += item
+    hasil = sum1-sum2
+    return hasil
+
+print(getSum([1,2,3,4],[3,1,4,1]))
 
 
 
