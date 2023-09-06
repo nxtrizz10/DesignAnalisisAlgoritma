@@ -1,5 +1,67 @@
+1) # Hitung hasil penjumlahan tiap elemen dalam list
+
+import numpy as np
+
+# terdapat list a dan b
+a = [1,2,3]
+b = [4,5,6]
+
+# lalu jumlahkan hasil = a + b
+print(a+b) # [1,2,3,4,5,6,]
+
+Hasilnya tidak sesui dengan yang diharapkan. Seharusnya tiap elemen dijumlahkan, akan tetapi list hanya digabungkan.
+Numpy harus di-impor dulu agar dapat digunakan di dalam program
+
+2) # Jika ingin menjumlahkan, maka kita harus membuat rumus atau fungsi secara manual seperti ini:
+import numpy as np
+
+def add(list_a,list_b):
+result = []
+for first, second in zip(list_a,list_b):
+result.append(first + second)
+return result
+
+3) # Buatlah file baru beranam array_numpy.py kemudian isi dengan kode berikut:
+
 import numpy as np
 # membuat array
 nilai_siswa = np.array([85,55,40,90])
 # mengakses data pada array
 print(nilai_siswa[3])
+
+# Setelah itu, coba jalankan. Dan hasilnya?
+
+4) # Run kode program berikut untuk mengetahui versi numpy yang berjalan pada komputer anda
+import numpy as np
+print(np.__version__)
+
+5) # Jika ingin membuat keterangan kode program, setting input sebagai Markdown, kemudian ketik judul dengan “#” di awal untuk ukuran besar, 
+atau “##” untuk ukuran sedang. Klik Run.
+
+Latihan 1
+1) import numpy as np
+
+nama = "Gregorius Rizcy"
+nim = 2022071012
+
+print("Hello World")
+print("Nama saya",nama,)
+print("NIM saya",nim,)
+
+2) import numpy as np
+
+if 5>2:
+  print("five is greater than two")
+
+3) import numpy as np
+
+x=5
+y="Rizz"
+print(x)
+print(y)
+
+4) import numpy as np
+
+x=4
+x="Rizz"
+print(x)
