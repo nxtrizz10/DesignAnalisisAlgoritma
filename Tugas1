@@ -1,0 +1,167 @@
+1.  Cari nilai KPK dari 3 dan 4.
+    KPK adalah Kelipatan Persekutuan Terkecil, merupakan bilangan bulat positif terkecil dan sama yang dapat dibagi oleh kedua bilangan tersebut.
+    Algoritma:
+    1)  Masukkan angka 3 ke dalam variabel x dan angka 4 ke dalam variabel y.
+    2)	Cari angka terbesar dari kedua variabel tersebut.
+    3)	Jika angka 4 atau variabel y merupakan angka terbesar, asumsikan bahwa y = angka terbesar.
+    4)	Lakukan perulangan, jika angka terbesar modulo x dan angka terbesar modulo y belum sama-sama menghasilkan angka 0, maka tambahkan nilai 1 pada angka terbesar.
+    5)	Jika angka terbesar modulo x dan angka terbesar modulo y sama-sama telah menghasilkan angka 0, asumsikan bahwa angka terbesar merupakan hasil KPK dari variabel x dan y.
+    6)	Selesai.
+
+    Program python:
+
+    def mencari_kpk(x,y):
+
+        if x > y:
+           angka_terbesar = x
+        else:
+           angka_terbesar = y
+    
+        while(True):
+            if((angka_terbesar % x == 0) and (angka_terbesar % y == 0)):
+                hasil_kpk = angka_terbesar
+                break
+            else:
+                angka_terbesar += 1
+        return hasil_kpk
+    
+    angka1 = 3
+    angka2 = 4
+    
+    print("Hasil KPK dari",angka1,"dan",angka2,"adalah",mencari_kpk(angka1, angka2))
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+2.  Fungsi untuk menukar posisi dua variabel x dan y, dengan kasus:
+    Ada 2 buah: manggis dan pisang. Manggis di piring 1, pisang di piring 2, piring 3 kosong.
+    Algoritma:
+    1)  Piring 1 berisi manggis, piring 2 berisi pisang, dan piring 3 kosong.
+    2)	Tukar posisi pisang ke piring 3 dan piring 2 menjadi kosong.
+    3)	Tukar posisi manggis ke piring 2 dan piring 1 menjadi kosong.
+    4)	Tukar posisi pisang ke piring 1 dan piring 3 menjadi kosong.
+    5)	Selesai.
+
+    Program python:
+
+    def menukar_posisi(list, posisi1, posisi2):
+        list[posisi1], list[posisi2] = list[posisi2], list[posisi1]
+        return list
+
+    piring1 = "manggis"
+    piring2 = "pisang"
+    piring3 = "kosong"
+    list = [piring1, piring2, piring3]
+    
+    print("Posisi pertama",list,)
+    
+    posisi1, posisi2 = 2, 3
+    print("Posisi kedua  ",menukar_posisi(list, posisi1-1, posisi2-1),)
+    
+    posisi1, posisi2 = 1, 2
+    print("Posisi ketiga ",menukar_posisi(list, posisi1-1, posisi2-1),)
+    
+    posisi1, posisi2 = 1, 3
+    print("Posisi keempat",menukar_posisi(list, posisi1-1, posisi2-1),)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+3.  Diketahui sebuah segitiga memiliki ukuran sebagai berikut.
+    Alas 25 dan tinggi 30. Hitung luas segitiga tersebut.
+    Diketahui rumus luas segtiga adalah luas = 0.5 x alas x tinggi.
+    Algoritma:
+    1)	Asumsikan a sebagai variabel alas dan t sebagai variabel tinggi.
+    2)	Masukkan rumus luas segitiga, yaitu 0.5 x a x t.
+    3)	Masukkan nilai a = 25.
+    4)	Masukkan nilai t = 30.
+    5)	Hitung hasil dari nilai a dan t menggunakan rumus pada step 2.
+    6)	Selesai.
+
+    Program python:
+
+    def luas_segitiga(a, t):
+        luas = 0.5 * a * t
+        return luas
+    
+    alas = 25
+    tinggi = 30
+    
+    print("Luas segitiga dari alas",alas,"dan tinggi",tinggi,"adalah",luas_segitiga(alas,tinggi),)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+4.  Tentukan algoritma dan pseudocode luas jajar genjang.
+    (panjang = 5, tinggi = 3)
+    Diketahui rumus jajar genjang adalah luas = panjang x tinggi.
+    Algoritma:
+    1)	Asumsikan p sebagai variabel panjang dan t sebagai variabel tinggi.
+    2)	Masukkan rumus luas jajar genjang, yaitu p x t.
+    3)	Masukkan nilai p = 5.
+    4)	Masukkan nilai t = 3.
+    5)	Hitung hasil dari nilai p dan t menggunakan rumus pada step 2.
+    6)	Selesai.
+
+    Program python:
+
+    def luas_jajar_genjang(p, t):
+        luas = p * t
+        return luas
+    
+    panjang = 5
+    tinggi = 3
+    
+    print("Luas jajar genjang dari panjang",panjang,"dan tinggi",tinggi,"adalah",luas_jajar_genjang(panjang,tinggi),)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+5.  Tentukan algoritma dan pseudocode volume tabung (jari-jari = 3, tinggi = 5).
+    Diketahui rumus volume tabung adalah volume = phi x r2 x tinggi.
+    Algoritma:
+    1)	Asumsikan p sebagai variabel phi, j sebagai variabel jari-jari, dan t sebagai variabel tinggi.
+    2)	Masukkan rumus volume tabung, yaitu volume = p x j2 x t.
+    3)	Masukkan nilai p = 22/7.
+    4)	Masukkan nilai j = 3.
+    5)	Masukkan nilai t = 5.
+    6)	Hitung hasil dari nilai p, j, dan t menggunakan rumus pada step 2.
+    7)	Selesai.
+
+    Program python:
+
+    def volume_tabung(p, j, t):
+        volume = p * j**2 * t
+        return volume
+    
+    phi = 22/7
+    jari_jari = 3
+    tinggi = 5
+    
+    print("Volume tabung dari jari-jari",jari_jari,"dan tinggi",tinggi,"adalah",volume_tabung(phi, jari_jari, tinggi),)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+6.  Tentukan algoritma dan pseudocode volume kerucut (diameter = 5, tinggi = 4).
+    Diketahui rumus kerucut adalah volume = 1/3 x phi x r2 x t atau 1/3 x phi x diameter x tinggi.
+    Algoritma:
+    1)	Asumsikan p sebagai variabel phi, d sebagai variabel diameter, dan t sebagai variabel tinggi.
+    2)	Masukkan rumus volume kerucut, yaitu volume = 1/3 x p x d x t.
+    3)	Masukkan nilai p = 22/7.
+    4)	Masukkan nilai d = 5.
+    5)	Masukkan nilai t = 4.
+    6)	Hitung hasil dari nilai p, d, dan t menggunakan rumus pada step 2.
+    7)	Selesai.
+    
+    Program python:
+
+    def volume_kerucut(p, d, t):
+        volume = 1/3 * p * d * t
+        return volume
+    
+    phi = 22/7
+    diameter = 5
+    tinggi = 4
+    
+    print("Volume kerucut dari diameter",diameter,"dan tinggi",tinggi,"adalah",volume_kerucut(phi, diameter, tinggi),)
