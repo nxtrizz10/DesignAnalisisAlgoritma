@@ -66,33 +66,33 @@ Bagaimana jika kita membutuhkan fungsi getBagi untuk membagikan seluruh angka?
 
 import numpy as np
 
-def getSum(myList1, myList2):
-    sum1 = 0
-    sum2 = 0
+def getBagi(myList1, myList2):
+    bagi1 = 0
+    bagi2 = 0
     for item in myList1:
-        sum1 += item
+        bagi1 += item
     for item in myList2:
-        sum2 += item
-    hasil = sum1/sum2
+        bagi2 += item
+    hasil = bagi1/bagi2
     return hasil
 
-print(getSum([1,2,3,4],[3,1,4,1]))
+print(getBagi([1,2,3,4],[3,1,4,1]))
 
 # getKurang
 
 import numpy as np
 
-def getSum(myList1, myList2):
-    sum1 = 0
-    sum2 = 0
+def getKurang(myList1, myList2):
+    kurang1 = 0
+    kurang2 = 0
     for item in myList1:
-        sum1 += item
+        kurang1 += item
     for item in myList2:
-        sum2 += item
-    hasil = sum1-sum2
+        kurang2 += item
+    hasil = kurang1-kurang2
     return hasil
 
-print(getSum([1,2,3,4],[3,1,4,1]))
+print(getKurang([1,2,3,4],[3,1,4,1]))
 
 
 
