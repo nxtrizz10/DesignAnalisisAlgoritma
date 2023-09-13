@@ -1,0 +1,205 @@
+(LIST)
+List Mahasiswa
+
+import datetime
+tanggal_hari_ini = datetime.date.today()
+aMahasiswa = ["Gregorius Rizcy", 2022071012, "Informatika", "DAA", tanggal_hari_ini.strftime("%d-%m-%Y"), "Universitas Pembangunan Jaya"]
+print(aMahasiswa);
+result:
+['Gregorius Rizcy', 2022071012, 'Informatika', 'DAA', '13-09-2023', 'Universitas Pembangunan Jaya']
+
+List Index (Nim)
+
+bin_mahasiswa = [('Gregorius Rizcy', 2022071012), ("Tama Rizki", 2022071013), ("Dika Arnanda", 2022071014), ("Elyza", 2022071015)]
+print(bin_mahasiswa[0]);
+result:
+Gregorius Rizcy 2022071012
+
+List Index (Universitas)
+
+bin_universitas = ["UPJ", "UNJ", "UNY", "UPN"]
+print(bin_universitas[0]);
+result:
+UPJ
+
+List Slicing 
+bin_universitas = ["UPJ", "UNJ", "UNY", "UPN", "UGM"]
+print(bin_universitas[0:4]);
+result:
+["UPJ", "UNJ", "UNY", "UPN"]
+
+List Iterasi 
+
+bin_mahasiswa = ["Gregorius Rizcy", 2022071012, "Informatika", "DAA", "UPJ"]
+for aMahasiswa in bin_mahasiswa:
+    print(aMahasiswa + " Square")
+result:
+Error Syntax
+
+bin_mahasiswa = ["Gregorius Rizcy", "2022071012", "Informatika", "DAA", "UPJ"]
+for aMahasiswa in bin_mahasiswa:
+    print(aMahasiswa + " Square")
+result:
+Gregorius Rizcy Square
+2022071012 Square
+Informatika Square
+DAA Square
+UPJ Square
+
+import datetime
+tanggal_hari_ini = datetime.date.today()
+bin_mahasiswa = ["Gregorius Rizcy", "2022071012", "Informatika", "DAA", tanggal_hari_ini.strftime("%d-%m-%Y"), "UPJ"]
+for aMahasiswa in bin_mahasiswa:
+    print(aMahasiswa + " Square")
+result:
+Gregorius Rizcy Square
+2022071012 Square
+Informatika Square
+DAA Square
+13-09-2023 Square
+UPJ Square
+
+import datetime
+tanggal_hari_ini = datetime.date.today()
+bin_mahasiswa = ["Gregorius Rizcy", "2022071012", "Informatika", "DAA", tanggal_hari_ini.strftime("%d-%m-%Y"), "UPJ"]
+for aMahasiswa in bin_mahasiswa:
+    print("UPJ " + aMahasiswa)
+result:
+UPJ Gregorius Rizcy
+UPJ 2022071012
+UPJ Informatika
+UPJ DAA
+UPJ 13-09-2023
+UPJ UPJ
+
+(TUPLES)
+Tuples (UPJ)
+
+bin_upj = ("Universitas", "Pembangunan", "Jaya")
+print(bin_upj[2]);
+print(bin_upj[0:]);
+result
+Jaya
+('Universitas', 'Pembangunan', 'Jaya')
+
+Nested Tuples
+
+weekdays = ("Senin, Selasa, Rabu, Kamis, Jumat")
+weekends = ("Sabtu, Minggu")
+
+hari = (weekdays, weekends)
+print(hari)
+result:
+('Senin, Selasa, Rabu, Kamis, Jumat', 'Sabtu, Minggu')
+
+Nested Tuples
+
+Pertama = "100"
+Kedua = "200, 400, 600"
+Ketiga = "300"
+Keempat = "400, 600"
+
+result = (Pertama, Kedua, Ketiga, Keempat)
+print(result)
+result:
+('100', '200, 400, 600', '300', '400, 600')
+
+Tuples Acak (Boolean, Dictonary, List)
+acak = (True, {"Nama" : "Gregorius Rizcy", "Status" : "Mahasiswa"}, [1,2,3])
+print(acak)
+result
+(True, {'Nama': 'Gregorius Rizcy', 'Status': 'Mahasiswa'}, [1, 2, 3])
+
+(DICTONARY)
+Dictonary (Latihan)
+
+bin_mahasiswa = {"Nama Mahasiswa" : "Gregorius Rizcy", "Nim" : "2022071012", "Prodi" : "Informatika", "Universitas" : "UPJ"}
+print(bin_mahasiswa)
+result:
+{'Nama Mahasiswa': 'Gregorius Rizcy', 'Nim': '2022071012', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+
+Dictonary (Fungsi 'get')
+bin_mahasiswa = {"Nama Mahasiswa" : "Gregorius Rizcy", "Nim" : "2022071012", "Prodi" : "Informatika", "Universitas" : "UPJ"}
+print(bin_mahasiswa)
+
+print(bin_mahasiswa.get('Nama Mahasiswa'))
+result:
+{'Nama Mahasiswa': 'Gregorius Rizcy', 'Nim': '2022071012', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+Gregorius Rizcy
+
+Dictonary (Fungsi Untuk Memperbarui Key Terkait)
+
+bin_mahasiswa = {"Nama Mahasiswa" : "Gregorius Rizcy", "Nim" : "2022071012", "Prodi" : "Informatika", "Universitas" : "UPJ"}
+print(bin_mahasiswa)
+
+bin_mahasiswa['Nama Mahasiswa']= "Dika Arnanda"
+print(bin_mahasiswa)
+result:
+{'Nama Mahasiswa': 'Gregorius Rizcy', 'Nim': '2022071012', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+{'Nama Mahasiswa': 'Dika Arnanda', 'Nim': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+
+(SETS) # Set hanya menyimpan nilai yang berbeda dari setiap elemen jika menambahkan elemen yang sama akan diabaikan.
+mahasiswa = {"Rizcy", "Rizcy", "UPJ"}
+print(mahasiswa)
+result:
+{'Rizcy', 'UPJ'}
+
+Inisiasi Set
+
+set_01 = {4,5,6,2,1,3,7,9,10,8}
+print(set_01)
+result:
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+Inisiai mengubah List menjadi Set
+
+set_02 = set()
+set_03 = set([2,1,4,3,5,7,9,10,6,8])
+print(type(set_02))
+print(set_03)
+result:
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+Menambahkan anggota Set
+
+set_04 = {2,3,4,5,6}
+set_04.add(1)
+print(set_04)
+result:
+{1, 2, 3, 4, 5, 6}
+
+Menghapus anggota Set
+set_04= {1, 2, 3, 4, 5, 6, 7, 8}
+set_04.discard(4)#hapus nilai 4
+print(set_04)
+
+set_04.add(10) #menambahkan nilai 10
+print(set_04)
+result:
+set_04= {1, 2, 3, 4, 5, 6, 7, 8}
+set_04.discard(4)#hapus nilai 4
+print(set_04)
+
+set_04.add(10) #menambahkan nilai 10
+print(set_04)
+{1, 2, 3, 5, 6, 7, 8, 10}
+
+Union Set (saat kita menggabungkan semua anggota set.)
+
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
+print(set_A|set_B)
+print(set_A.union(set_B))
+result:
+{1, 2, 3, 4, 5, 6}
+{1, 2, 3, 4, 5, 6}
+
+Irisan Set
+
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
+print(set_A & set_B)
+print(set_A.intersection(set_B))
+result:
+{3, 4}
+{3, 4}
