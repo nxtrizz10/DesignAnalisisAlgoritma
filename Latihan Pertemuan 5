@@ -1,0 +1,253 @@
+#Divide Conquer Max & Min
+
+def divideAndConquer_Max(arr, ind, len):
+    maximum = -1;
+    if (ind >= len -2):
+        if (arr[ind] > arr[ind + 1]):
+            return arr[ind];
+        else:
+            return arr[ind + 1];
+
+    maximum = divideAndConquer_Max(arr, ind + 1, len);
+
+    if (arr[ind] > maximum):
+        return arr[ind];
+    else:
+        return maximum;
+
+def divideAndConquer_Min(arr, ind, len):
+    minimum = 0;
+    if (ind >= len -2):
+        if (arr[ind] < arr[ind + 1]):
+            return arr[ind];
+        else:
+            return arr[ind + 1];
+
+    minimum = divideAndConquer_Min(arr, ind + 1, len);
+
+    if (arr[ind] < minimum):
+        return arr[ind];
+    else:
+        return minimum;
+
+if __name__ == '__main__':
+    minimum, maximum = 0, -1;
+
+    #array initialization
+    arr = [4,12,23,9,21,1,35,2,24];
+
+    maximum = divideAndConquer_Max(arr, 0, 9);
+    minimum = divideAndConquer_Min(arr, 0, 9);
+
+    print("The minimum number is the array is: ", minimum);
+    print("The maximum number in the array is: ", maximum);
+
+
+# Merge-Sort
+
+# Mergesort in Python
+def mergeSort(array):
+  if len(array) > 1:
+
+    # r is the point where the array is divided into two subarrays
+    r = len(array)//2
+    L = array[:r]
+    M = array[r:]
+
+    # Sort the two halves
+    mergeSort(L)
+    mergeSort(M)
+
+    i = j = k = 0
+
+    # Until we reach either end of either L or M, pick larger among
+    # elements L and M and place them in the correct position at A[p..r]
+    while i < len(L) and j < len(M):
+      if L[i] < M[j]:
+        array[k] = L[i]
+        i += 1
+      else:
+        array[k] = M[j]
+        j += 1
+      k += 1
+
+    # When we run out of elements in either L or M,
+    # Pick up the remaining elements and put in A[p..r]
+    while i < len(L):
+      array[k] = L[i]
+      i += 1
+      k += 1
+
+    while j < len(M):
+      array[k] = M[j]
+      j += 1
+      k += 1
+
+# Print the array
+def printList(array):
+  for i in range(len(array)):
+    print(array[i], end=" ")
+  print()
+# Driver program
+if __name__ == '__main__':
+  array = [4,12,23,9,21,1,35,2,24]
+
+  mergeSort(array)
+  
+  print("Sorted array is: ")
+  printList(array)
+
+
+# Quick Sort
+
+
+# Function to find the partition position
+def partition(array, low, high):
+
+  # Choose the rightmost element as pivot
+  pivot = array[high]
+
+  # Pointer for greater element
+  i = low - 1
+
+  # Traverse through all elements
+  # Compare each element with pivot
+  for j in range(low, high):
+    if array[j] <= pivot:
+
+      # If element smaller than pivot is found
+      # Swap it with the greater element pointed by i 
+      i = i + 1
+
+      # Swapping element at i with element at j
+      (array[i], array[j]) = (array[j], array[i])
+      
+# Swap the pivot element with the greater element specified by i
+  (array[i + 1], array[high]) = (array[high], array[i + 1])
+
+# Return the position from where partition is done
+  return i + 1
+
+# Function to perfrom quicksort
+def quickSort(array, low, high):
+  if low < high:
+
+    # Find pivot element such that
+    # Element smaller than pivot are on the left
+    # Element greater than pivot are on the left
+    pi = partition(array, low, high)
+
+    # Recursive call on the left of pivot
+    quickSort(array, low, pi - 1)
+
+    # Recursive call on the right of pivot
+    quickSort(array, pi + 1, high)
+
+data = [4,12,23,9,21,1,35,2,24]
+print("Unsorted Array")
+print(data)
+
+size = len(data)
+
+quickSort(data, 0, size - 1)
+
+print("Sorted Array in Ascending Order: ")
+print(data)
+
+
+# Inversion
+
+# Hitung Inversi
+def countInversion(arr):
+  result=0
+  for i in range(len(arr)):
+    for j in range(i+1,len(arr)):
+      if arr[i]>arr[j]:
+        result += 1
+  return result
+
+arr=[21,70,36,14,25]
+result=countInversion(arr)
+print(result)
+
+# Hitung Inversi dengan divide dan conquer
+def countInversion(arr):
+  icount=0
+  if len(arr)<=1:
+    return icount
+
+  mid=len(arr)//2
+  left=arr[:mid]
+  right=arr[mid:]
+  icount+=countInversion(left)
+  icount+=countInversion(right)
+  i=j=k=0
+
+  #print(left)
+  #print(right)
+  while i<len(left) and j<len(right):
+    if left[i]<right[j]:
+      arr[k]=left[i]
+      i+=1
+    else:
+      #print(left[i]),right[j])
+      arr[k]=right[j]
+      j+=1
+      icount+=(mid-i)
+    k+=1
+
+  while i<len(left):
+    arr[k]=left[i]
+    i+=1
+    k+=1
+  while j<len(right):
+    arr[k]=right[j]
+    j+=1
+    k+=1
+
+  return icount
+
+arr=[1,20,6,4,5]
+result = countInversion(arr)
+print(result)
+
+# Tanpa divide dan conquer
+def maxSubSum(arr):
+  max_so_far=0
+  max_ending_here=0
+  for i in range(len(arr)):
+    max_ending_here+=arr[i]
+    if max_ending_here>max_so_far:
+      max_so_far=max_ending_here
+    if max_ending_here<0:
+      max_ending_here=0
+  return max_so_far
+
+arr=[-2,-5,6,-2,-3,1,5,-6]
+result=maxSubSum(arr)
+print(result)
+
+# Menggunakan Divide and Counquer
+def maxCrossingSum(arr,low,mid,high):
+  result=0; leftSum=float('-infinity')
+  for i in range(mid,low-1,-1):
+    result+=arr[i]
+    if result>leftSum:
+      leftSum=result
+  result=0; rightSum=float('-infinity')
+  for i in range(mid+1,high+1):
+    result+=arr[i]
+    if result>rightSum:
+      rightSum=result
+  return leftSum+rightSum
+
+def maxSum(arr,low,high):
+  if low==high:
+    return arr[low]
+  mid=(low+high)//2
+  return max(maxSum(arr,low,mid),maxSum(arr,mid+1,high),maxCrossingSum(arr,low,mid,high))
+
+arr= [-2,-5,6,-2,-3,1,5,-6]
+result=maxSum(arr,0,len(arr)-1)
+print(result)
+
