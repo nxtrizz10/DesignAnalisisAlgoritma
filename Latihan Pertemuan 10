@@ -1,0 +1,201 @@
+#Linear Programing menggunakan Pulp#
+
+import pulp
+
+model = pulp.LpProblem("ProfitMaximisingProblem", pulp.LpMaximize)
+A = pulp.LpVariable('A', lowBound=0,cat='Integer')
+B = pulp.LpVariable('B', lowBound=0, cat='Integer')
+
+model += 5000 * A + 2500 * B, "Profit"
+
+model += 3 * A + 2 * B <= 20
+model += 4 * A + 3 * B <= 30
+model += 4 * A + 3 * B <= 44
+
+model.solve()
+pulp.LpStatus[model.status]
+
+print(A.varValue)
+print(B.varValue)
+
+print(pulp.value(model.objective))
+
+Latihan
+
+# 4x + 3y = 34 #
+import pulp
+
+model = pulp.LpProblem(name="Pemecahan_Persamaan", sense=pulp.LpMinimize)
+
+x = pulp.LpVariable(name="x")
+y = pulp.LpVariable(name="y")
+
+model += 4 * x + 3 * y == 34
+
+model.solve()
+
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue)
+print("Nilai y = ", y.varValue)
+
+# 5x + y = 37 #
+import pulp
+
+model = pulp.LpProblem(name="Pemecahan_Persamaan", sense=pulp.LpMinimize)
+
+x = pulp.LpVariable(name="x")
+y = pulp.LpVariable(name="y")
+
+model += 5 * x + 1 * y == 37
+
+model.solve()
+
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue)
+print("Nilai y = ", y.varValue)
+
+#Latihan soal cerita 1#
+
+import pulp
+
+model = pulp.LpProblem("ProfitMaximisingProblem", pulp.LpMaximize)
+P = pulp.LpVariable('P', lowBound=0,cat='Integer')
+B = pulp.LpVariable('B', lowBound=0, cat='Integer')
+
+model += 2 * P + 6 * B, "Profit"
+
+model += 3 * P + 4 * B == 11000
+model += 1 * P + 7 * B == 15000
+
+model.solve()
+pulp.LpStatus[model.status]
+
+print("Pensil", P.varValue)
+print("Buku", B.varValue)
+
+print("Total", pulp.value(model.objective))
+
+#Latihan soal cerita 2#
+
+import pulp
+
+model = pulp.LpProblem("ProfitMaximisingProblem", pulp.LpMaximize)
+P = pulp.LpVariable('P', lowBound=0,cat='Integer')
+L = pulp.LpVariable('L', lowBound=0, cat='Integer')
+
+model += 2 * P + 2 * L == 44
+model += P - L == 6
+
+model.solve()
+pulp.LpStatus[model.status]
+
+print("Panjang", P.varValue)
+print("Lebar", L.varValue)
+
+#Slide 32
+
+# 1. Impor modul yang diperlukan dari Scipy:
+
+from scipy.optimize import linprog
+
+# 2. Tentukan koefisien fungsi tujuan dan matriks batasan:
+# Koefisien fungsi tujuan (Z = 5x1 + 7x2)
+
+c = [-5, -7] # Karena kita ingin "maksimalkan" -5x1 - 7x2, maka perlu diubah menjadi "-5" dan "-7".
+
+# Koefisien matriks batasan
+A = [
+    [1,0], # 1x1 + 0x2 <= 16
+    [2,3], # 2x1 + 3x2 <= 19
+    [1,1]  # 1x1 + 1x2 <= 8
+]
+# Batasan kanan (rhs) dari masing-masing batasan
+b = [16, 19, 8]
+
+# 3. Tentukan batasan variabel x1 dan x2 sebagai variabel non-negatif:
+x1_bounds = (0, None) # x1 >= 0
+x2_bounds = (0, None) # x2 >= 0
+
+# 4. Gunakan linprog untuk menyelesaikan masalah pemrograman linier:
+result = linprog(c, A_ub=A, b_ub=b, bounds=[x1_bounds, x2_bounds], method="highs")
+
+# 5. Tampilkan hasilnya
+# Hasil optimasi
+print("Optimal Solution:")
+print("x1 =", result.x[0])
+print("x2 =", result.x[1])
+print("Max Z =", -result.fun) # Karena tujuannya adalah memaksimalkan -Z
+
+#Slide 33
+#Latihan 1 dengan scipy
+
+import pulp
+
+# Membuat objek masalah optimasi
+model = pulp.LpProblem(name="Pemecahan_Persamaan", sense=pulp.LpMinimize)
+
+# Membuat variabel x dan y
+x = pulp.LpVariable(name="x")
+y = pulp.LpVariable(name="y")
+
+# Menambahkan batasan
+model += 4 * x + 12 * y == 28
+
+# Menyelesaikan masalah
+model.solve()
+
+# Menampilkan hasil
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue)
+print("Nilai y = ", y.varValue)
+
+#Slide 33
+#Latihan 2
+
+import pulp
+
+# Membuat objek masalah optimasi
+model = pulp.LpProblem(name="Pemecahan_Persamaan", sense=pulp.LpMinimize)
+
+# Membuat variabel x dan y
+x = pulp.LpVariable(name="x")
+y = pulp.LpVariable(name="y")
+
+# Menambahkan batasan
+model += 2 * x + y == 21
+
+# Menyelesaikan masalah
+model.solve()
+
+# Menampilkan hasil
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue)
+print("Nilai y = ", y.varValue)
+
+#Slide 33
+#Latihan 3
+
+import pulp
+
+# Membuat objek masalah optimasi
+model = pulp.LpProblem(name="Pemecahan_Persamaan", sense=pulp.LpMinimize)
+
+# Membuat variabel x dan y
+x = pulp.LpVariable(name="x")
+y = pulp.LpVariable(name="y")
+
+# Menambahkan batasan
+model += 3 * x + 4 * y == 55
+model += x + y == 16
+
+# Menyelesaikan masalah
+model.solve()
+
+# Menampilkan hasil
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue) # Lisa = 9 jam
+print("Nilai y = ", y.varValue) # Muri = 6 jam
+
+print("\nJam kerja masing-masing:\nLisa =", x.varValue, "jam")
+print("Muri =", y.varValue, "jam")
+
